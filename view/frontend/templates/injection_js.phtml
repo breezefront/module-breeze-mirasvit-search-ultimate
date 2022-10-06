@@ -1,0 +1,29 @@
+<?php
+/** @var \Mirasvit\SearchAutocomplete\Block\Injection $block */
+
+$config = $block->getJsConfig();
+?>
+
+<script type="text/javascript" data-breeze>
+    require([
+            'jquery',
+            'Mirasvit_SearchAutocomplete/js/autocomplete'
+        ], function ($, Autocomplete) {
+            var autocomplete = null;
+
+            $('#search_mini_form').prop("minSearchLength", 10000);
+            autocomplete = new Autocomplete('#search');
+            autocomplete.init(<?=\Zend_Json::encode($config)?>);
+
+            // cleanup
+            $(document).one('turbolinks:before-cache', function () {
+                if (autocomplete) {
+                    autocomplete.destroy();
+                    autocomplete = null;
+                }
+            });
+        }
+    );
+</script>
+
+<?= $block->fetchView($block->getTemplateFile('Mirasvit_SearchAutocomplete::injection_templates.phtml')) ?>
