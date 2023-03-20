@@ -208,6 +208,7 @@ define([
             if (this.model === null) {
                 this.model = {
                     result:  ko.observable({}),
+                    config:  this.config,
                     loading: ko.observable(false),
 
                     onMouseOver: function (item, event) {

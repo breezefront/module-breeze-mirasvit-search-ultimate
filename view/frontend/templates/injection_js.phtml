@@ -13,7 +13,7 @@ $config = $block->getJsConfig();
 
             $('#search_mini_form').prop("minSearchLength", 10000);
             autocomplete = new Autocomplete('#search');
-            autocomplete.init(<?=\Zend_Json::encode($config)?>);
+            autocomplete.init(<?=$block->jsonEncode($config)?>);
 
             // cleanup
             $(document).one('turbolinks:before-cache', function () {
