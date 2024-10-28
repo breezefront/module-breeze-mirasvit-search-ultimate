@@ -3,7 +3,7 @@
     "description": "Mirasvit Ultimate Search integration with Breeze Frontend",
     "type": "magento2-module",
     "version": "1.0.2",
-    "license": "OSL-3.0",
+    "license": "MIT",
     "require": {
         "swissup/module-breeze": "^2.4.3"
     },
